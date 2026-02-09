@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction</title>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="navbar">
+    <div class="logo">SEED</div>
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a class="active" href="/predict">Check</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<div class="breadcrumb">
+    Home / <b>Predict</b>
+    <h2>Prediction</h2>
+</div>
+
+<div class="prediction-wrapper">
+    <div class="left-panel">
+        {% if prediction_text %}
+        <div class="result-card">
+            <h3>Result</h3>
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% else %}
+        <div class="form-card">
+            <h3>Enter the details :</h3>
+			<p>Enter measurements to predict pumpkin seed variety<p>
+            <form action="/predict" method="POST">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Area</label>
+                        <input name="Area" placeholder="Range: 15000 – 30000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Perimeter</label>
+                        <input name="Perimeter" placeholder="Range: 250 – 450" required>
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Major Axis Length</label>
+                        <input name="Major_Axis_Length" placeholder="Range: 700 – 900" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Minor Axis Length</label>
+                        <input name="Minor_Axis_Length" placeholder="Range: 300 – 600" required>
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Eccentricity</label>
+                        <input name="Eccentricity" placeholder="Range: 0 – 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Convex Area</label>
+                        <input name="Convex_Area" placeholder="Range: 15000 – 31000" required>
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Equiv Diameter</label>
+                        <input name="Equiv_Diameter" placeholder="Range: 120 – 200" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Solidity</label>
+                        <input name="Solidity" placeholder="Range: 0 – 1" required>
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Extent</label>
+                        <input name="Extent" placeholder="Range: 0 – 1" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Roundness</label>
+                        <input name="Roundness" placeholder="Range: 0 – 1" required>
+                    </div>
+                </div>
+
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Aspect Ratio</label>
+                        <input name="Aspect_Ratio" placeholder="Range: 0 – 3" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Compactness</label>
+                        <input name="Compactness" placeholder="Range: 0 – 1" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn submit">Submit</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if prediction_text %}
+    <div class="right-panel">
+        <img src="{{ url_for('static', filename='images/seed1.jpg') }}">
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>

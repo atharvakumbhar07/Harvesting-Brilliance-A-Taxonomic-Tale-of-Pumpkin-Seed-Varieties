@@ -1,0 +1,268 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: #f8f9fa;
+  color: #222;
+}
+
+.navbar {
+  background: #000;
+  color: #fff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-links a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: #f59e0b;
+}
+
+.nav-links .active {
+  border-bottom: 2px solid #f59e0b;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #f59e0b;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.3);
+}
+
+.btn:hover {
+  background: #d97706;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(245, 158, 11, 0.45);
+}
+
+.hero {
+  height: 100vh;
+  background: url('../images/seed.jpg') center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02) 0%,
+    rgba(0, 0, 0, 0.18) 70%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  padding: 40px 30px;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.85);
+}
+
+.badge {
+  background: #f59e0b;
+  color: white;
+  padding: 8px 28px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+.hero-content h1 {
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin: 0.2em 0 0.5em;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  font-size: 1.45rem;
+  font-weight: 400;
+  margin: 0 0 2.8rem;
+  opacity: 0.94;
+}
+
+.breadcrumb {
+  padding: 20px 40px;
+  background: #f1f1f1;
+}
+
+.breadcrumb h2 {
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.prediction-wrapper {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+}
+
+.right-panel img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.form-card,
+.result-card {
+  background: #1f2937;               
+  color: #f3f4f6;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid #374151;
+}
+
+.form-card h3,
+.result-card h3 {
+  color: #f3f4f6;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;               
+}
+
+.form-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.form-group label {
+  color: #d1d5db;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.form-group input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  background: #374151;
+  border: 1px solid #4b5563;
+  border-radius: 8px;
+  color: #f3f4f6;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+  background: #4b5563;
+}
+
+.form-group input::placeholder {
+  color: #9ca3af;
+}
+
+.submit {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 14px 40px;
+  font-size: 1.05rem;
+  min-width: 180px;
+  margin: 32px auto 0;
+  display: block;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+  transition: all 0.25s ease;
+}
+
+.submit:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(59, 130, 246, 0.5);
+}
+
+@media (max-width: 992px) {
+  .prediction-wrapper {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+  .breadcrumb {
+    padding: 15px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .navbar {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .nav-links {
+    text-align: center;
+  }
+  .nav-links a {
+    margin: 0 12px;
+  }
+  .hero {
+    height: 80vh;
+  }
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+  .submit {
+    width: 100%;
+    padding: 14px;
+  }
+}
